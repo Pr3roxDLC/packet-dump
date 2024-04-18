@@ -89,7 +89,7 @@
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
-                                    <executable>convenience/server-setup.py</executable>
+                                    <executable>convenience/convenience.sh</executable>
                                     <arguments>
                                         <argument>--fork</argument>
                                         <argument>paper</argument>
@@ -185,13 +185,22 @@
             <groupId>com.github.retrooper.packetevents</groupId>
             <artifactId>spigot</artifactId>
             <version>2.2.1</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.4.4.Final</version>
             <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.4.4.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.1</version>
         </dependency>
     </dependencies>
 </project>

@@ -1,6 +1,5 @@
-name: Packet Dump
+name: packetdump
 version: '${project.version}'
 main: me.pr3.packetdump.PacketDump
 api-version: '1.20'
 depend:
-  - packetevents

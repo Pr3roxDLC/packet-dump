@@ -8,6 +8,6 @@ public class ConfigurablePacketListener implements PacketListener {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        PacketDump.CACHE.add(event);
+        PacketDump.CACHE.add(event.clone());
     }
 }
