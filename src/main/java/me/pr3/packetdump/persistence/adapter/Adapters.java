@@ -8,6 +8,7 @@ import java.util.Map;
 public class Adapters {
     public static final Map<PacketTypeCommon, IPacketAdapter<?>> ADAPTERS = Map.ofEntries(
             Map.entry(PacketType.Play.Client.CHAT_MESSAGE, new PlayClientChatMessageAdapter()),
-            Map.entry(PacketType.Play.Client.PLAYER_POSITION, new PlayClientPlayerPositionAdapter())
+            Map.entry(PacketType.Play.Client.PLAYER_POSITION, new PlayClientPlayerPositionAdapter()),
+            Map.entry(PacketType.Play.Server.WINDOW_ITEMS, new PlayServerWindowItemsAdapter())
     );
 }

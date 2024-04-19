@@ -22,4 +22,14 @@ public abstract class AbstractPacketEntity {
     @Basic
     public UUID playerUUID;
 
+
+    public AbstractPacketEntity(Instant instant, UUID playerUUID){
+        this.instant = instant;
+        this.playerUUID = playerUUID;
+    }
+
+    public AbstractPacketEntity(){
+        //JPA
+    }
+
 }

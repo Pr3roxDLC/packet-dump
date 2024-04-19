@@ -1,6 +1,5 @@
 package me.pr3.packetdump.persistence;
 
-import com.github.retrooper.packetevents.event.PacketEvent;
 import com.github.retrooper.packetevents.event.ProtocolPacketEvent;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -11,9 +10,6 @@ import me.pr3.packetdump.persistence.filter.IPacketEntityFilter;
 import me.pr3.packetdump.persistence.jpa.Bootstrap;
 import me.pr3.packetdump.persistence.model.AbstractPacketEntity;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class PersistenceHandler {
@@ -31,7 +27,7 @@ public class PersistenceHandler {
                 IPacketEntityFilter<?> filter = Filters.FILTERS.get(packetEvent.getPacketType());
                 if (adapter == null) continue;
                 AbstractPacketEntity entity = adapter.adapt(packetEvent);
-                if(filter == null || !filter.filterInternal(entity)) continue;
+                if(filter != null && !filter.filterInternal(entity)) continue;
                 entityManager.persist(entity);
             }
             entityManager.getTransaction().commit();

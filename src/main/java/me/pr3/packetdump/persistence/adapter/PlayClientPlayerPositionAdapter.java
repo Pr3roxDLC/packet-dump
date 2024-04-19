@@ -11,13 +11,12 @@ public class PlayClientPlayerPositionAdapter implements IPacketAdapter<PlayClien
     @Override
     public PlayClientPlayerPositionPacketEntity adapt(ProtocolPacketEvent<?> packetReceiveEvent) {
         WrapperPlayClientPlayerPosition packet = new WrapperPlayClientPlayerPosition((PacketReceiveEvent) packetReceiveEvent);
-        PlayClientPlayerPositionPacketEntity entity = new PlayClientPlayerPositionPacketEntity();
-        entity.instant = Instant.now();
-        entity.playerUUID = packetReceiveEvent.getUser().getUUID();
-        entity.x = packet.getPosition().x;
-        entity.y = packet.getPosition().y;
-        entity.z = packet.getPosition().z;
-        entity.onGround = packet.isOnGround();
-        return entity;
+        return new PlayClientPlayerPositionPacketEntity(
+                Instant.now(),
+                packetReceiveEvent.getUser().getUUID(),
+                packet.getPosition().x,
+                packet.getPosition().y,
+                packet.getPosition().z,
+                packet.isOnGround());
     }
 }
